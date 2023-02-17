@@ -1,0 +1,296 @@
+/* loading button from https://codepen.io/keenanpayne/pen/YmKKer */
+
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto", sans-serif;
+    background-color: #393E40;
+}
+
+.hello {
+
+    background: linear-gradient(90deg, #897ffe 0%, #897ffe 50%, #897ffe 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+
+
+    text-align: center;
+    font-size: 3rem;
+    margin: 0;
+    padding: 0;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 77vh;
+}
+
+
+
+.input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.input label {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.input input, .input textarea {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.input input:focus, .input textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #0070f3;
+}
+
+.output {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.output label {
+    font-size: 1.5rem;
+    margin-bottom: 5px;
+}
+
+.output textarea {
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 200px;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.output textarea:focus {
+    outline: none;
+    box-shadow: 0 0 5px #0070f3;
+}
+
+
+
+
+
+
+
+button {
+    background-color: #897ffe;
+    border-radius: 3px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    height: 50px;
+    letter-spacing: 0.5px;
+    line-height: 50px;
+    overflow: hidden;
+    outline: none;
+    padding: 0 16px;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 150ms, color 150ms ease-in-out;
+    white-space: nowrap;
+    width: 100%;
+}
+
+button ul {
+    float: left;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    transition: transform 300ms cubic-bezier(0, 0.65, 0.7, 0.9);
+    transform-style: preserve-3d;
+}
+
+button li {
+    --rotateX: 0deg;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    display: block;
+    transition: opacity 150ms;
+    transform-origin: 50% 50%;
+    transform: rotateX(var(--rotateX)) translateZ(10px);
+    width: 100%;
+}
+
+button li:nth-child(2), button li:nth-child(3) {
+    opacity: 0;
+    position: absolute;
+}
+
+button li:nth-child(2) {
+    --rotateX: -90deg;
+}
+
+button li:nth-child(3) {
+    --rotateX: -180deg;
+}
+
+button span {
+    align-items: center;
+    display: flex;
+    float: left;
+    height: 100%;
+    justify-content: center;
+    max-width: 0;
+    opacity: 0;
+    position: relative;
+    transform: translateX(-100%);
+    transition: max-width 50ms ease, opacity 100ms ease, transform 150ms ease-in-out;
+    width: 20px;
+}
+
+button svg {
+    position: absolute;
+}
+
+button svg:nth-child(1) {
+    --stroke: 40;
+    fill: transparent;
+    height: 20px;
+    left: 0;
+    stroke: white;
+    stroke-dasharray: var(--stroke);
+    stroke-dashoffset: calc(var(--stroke) * 2);
+    top: 15px;
+    width: 20px;
+}
+
+button svg:nth-child(2) {
+    --stroke: 16;
+    fill: transparent;
+    height: 16px;
+    left: 50%;
+    stroke: transparent;
+    stroke-dasharray: var(--stroke);
+    stroke-dashoffset: var(--stroke);
+    top: 25px;
+    transform: translate3d(-5px, -3px, 0);
+    transition: stroke 300ms;
+    width: 16px;
+}
+
+button.-request, button.-success {
+    text-align: left;
+    pointer-events: none;
+}
+
+button.-request span, button.-success span {
+    margin-right: 12px;
+    max-width: initial;
+    opacity: 1;
+    transform: translateX(0);
+}
+
+button.-request li:nth-child(1), button.-success li:nth-child(1) {
+    opacity: 0;
+    position: absolute;
+}
+
+button.-request {
+    background-color: #635ac7;
+}
+
+button.-request svg:nth-child(1) {
+    -webkit-animation: stroke 2s linear infinite forwards, rotate 1s linear infinite forwards;
+    animation: stroke 2s linear infinite forwards, rotate 1s linear infinite forwards;
+}
+
+button.-request ul {
+    transform: rotateX(90deg);
+}
+
+button.-request li:nth-child(2) {
+    opacity: 1;
+    position: relative;
+}
+
+button.-success {
+    background-color: #00bf9c;
+}
+
+button.-success svg:nth-child(1) {
+    fill: #fff;
+    stroke-dasharray: 0;
+}
+
+button.-success svg:nth-child(2) {
+    -webkit-animation: stroke 300ms ease-in-out forwards;
+    animation: stroke 300ms ease-in-out forwards;
+    stroke: #00bf9c;
+}
+
+button.-success ul {
+    transform: rotateX(180deg);
+}
+
+button.-success li:nth-child(3) {
+    opacity: 1;
+    position: relative;
+}
+
+@-webkit-keyframes stroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@keyframes stroke {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@-webkit-keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotate {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+:root {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+.twitter {
+    bottom: 0;
+    position: fixed;
+    right: 0;
+    width: 50px;
+}

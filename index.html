@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- add favicon -->
+    <link
+      rel="icon"
+      href="https://cdn-icons-png.flaticon.com/512/136/136443.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="app.js" type="text/javascript" defer></script>
+    <title>CSVToJson</title>
+  </head>
+  <body>
+    <h1 class="hello">CSV TO JSON</h1>
+
+    <div class="container">
+      <div class="input">
+        <textarea id="csv" placeholder="Enter CSV here"></textarea>
+      </div>
+      <div class="button">
+        <!-- <button id="convert">Convert</button> -->
+        <button id="convert">
+          <span>
+            <svg>
+              <use xlink:href="#circle" />
+            </svg>
+            <svg>
+              <use xlink:href="#check" />
+            </svg>
+          </span>
+          <ul>
+            <li>Convert</li>
+            <li>Converting</li>
+            <li>Converted</li>
+          </ul>
+        </button>
+      </div>
+      <div class="output">
+        <textarea id="json" placeholder="JSON will appear here"></textarea>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 16 16"
+        id="circle"
+      >
+        <circle cx="8" cy="8" r="7.5"></circle>
+      </symbol>
+
+      <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" id="check">
+        <path
+          d="m.65909042 4.04356308 2.43156433 2.43156433 5.83150483-5.83150482"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="1.25"
+        />
+      </symbol>
+    </svg>
+  </body>
+</html>
